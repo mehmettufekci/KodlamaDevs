@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Application.Features.Languages.Rules
 {
@@ -25,9 +26,10 @@ namespace Application.Features.Languages.Rules
             if (result.Items.Any()) throw new BusinessException("Language name exists.");
         }
 
-        public void LanguageNameShouldNotBeEmpty(string name)
+        public void LanguageShouldExistWhenRequested(Language language)
         {
-            if (String.IsNullOrWhiteSpace(name)) throw new BusinessException("Language name should not be empty.");
+            if (language == null) throw new BusinessException("Requested Language does not exist.");
         }
+
     }
 }
