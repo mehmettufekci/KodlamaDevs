@@ -25,9 +25,9 @@ namespace Application.Features.Languages.Rules
             if (result.Items.Any()) throw new BusinessException("Language name exists.");
         }
 
-        public void LanguageShouldExistWhenRequested(Language Language)
+        public void LanguageNameShouldNotBeEmpty(string name)
         {
-            if (Language == null) throw new BusinessException("Requested Language does not exist.");
+            if (String.IsNullOrWhiteSpace(name)) throw new BusinessException("Language name should not be empty.");
         }
     }
 }
